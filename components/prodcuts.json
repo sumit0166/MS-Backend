@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Nike Air Force 1 '07 Men's Shoes",
+    "stock": 24,
+    "variant": "Men's",
+    "type": "Casual",
+    "category": "Sneakers",
+    "brand": "Nike",
+    "description": "The iconic Nike Air Force 1 sneaker, available in a variety of colors and styles.",
+    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS_14mKYw_mwLU_AJDu8Ygj-ho4VeRftHKwaC9tVx-_DYRiVcizxrtUxhyoP5nv",
+    "retail": 1900,
+    "wholesale": 1700
+  },
+  {
+    "name": "Adidas Stan Smith Women's Casual Sneakers",
+    "stock": 12,
+    "variant": "Women's",
+    "type": "Casual",
+    "category": "Sneakers",
+    "brand": "Adidas",
+    "description": "A timeless and versatile sneaker, perfect for everyday wear.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm5xuwoddvQXnfNY2Fm4QaFatET9pL4kQk0KYrxuCxc2TCUd7whMzAgi7FeUcH",
+    "retail": 2599,
+    "wholesale": 2400
+  },
+  {
+    "name": "Timberland Men's Classic Yellow Boots",
+    "stock": 120,
+    "variant": "Men's",
+    "type": "Boot",
+    "category": "Casual",
+    "brand": "Timberland",
+    "description": "Durable and stylish boots that are perfect for any weather.",
+    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWJbV3xNyf7okjxGNwqgXRCh6m2aLi-6SORsHVGaXxdGUnHZZUZU8Ui3k2DNUa",
+    "retail": 2459,
+    "wholesale": 2190
+  },
+  {
+    "name": "UGG Women's Classic Mini Boots",
+    "stock": 85,
+    "variant": "Women's",
+    "type": "Boot",
+    "category": "Casual",
+    "brand": "UGG",
+    "description": "Cozy and comfortable sheepskin boots that are perfect for winter.",
+    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWJbV3xNyf7okjxGNwqgXRCh6m2aLi-6SORsHVGaXxdGUnHZZUZU8Ui3k2DNUa",
+    "retail": 3299,
+    "wholesale": 3180
+  },
+  {
+    "name": "Veja Esplar LARIX Unisex Sneakers",
+    "stock": 62,
+    "variant": "Unisex",
+    "type": "Casual",
+    "category": "Sneakers",
+    "brand": "Veja",
+    "description": "Sustainable and stylish sneakers made from recycled and organic materials.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnLPzulngR-QWuhOJl9gjJ9ea2FTxjxvyy0Wh52zfcI9iruoXKL0Pmt69e6f9l",
+    "retail": 4599,
+    "wholesale": 4350
+  },
+  {
+    "name": "Stuart Weitzman 5050 Boot",
+    "stock": 2,
+    "variant": "Women's",
+    "type": "Boot",
+    "category": "Dress",
+    "brand": "Stuart Weitzman",
+    "description": "A luxurious and elegant boot that is perfect for special occasions.",
+    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQLTwAvFZzsVYO29DOgaXPBVHACZhtylRN6M0FMsZkizvYIWC-0bctDmHjYOTRI",
+    "retail": 3999,
+    "wholesale": 3624
+  }
+]

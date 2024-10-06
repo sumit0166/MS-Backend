@@ -1,0 +1,22 @@
+{
+  "serverPort": 3001,
+  "dbHost": "localhost",
+  "port":"27017",
+  "dbName":"adminPanel",
+  "version": "0.0.6",
+  "sesionTimeout": "2h",
+  "corsPolicy": {
+    "incomingTraffic": "allowedOnly",
+    "allowedOrigins": [
+      "http://webapp:3000",
+      "http://sumit:3000"
+    ]
+  },
+  "logs" : {
+    "path": "logs/%DATE%.log",
+    "mode":"info",
+    "size": "20m",
+    "retantionPeriod": "14d"
+  }
+}
+
