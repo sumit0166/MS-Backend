@@ -1,6 +1,6 @@
 {
-  "serverPort": 3001,
-  "dbHost": "localhost",
+  "serverPort": 8082,
+  "dbHost": "webapp",
   "port":"27017",
   "dbName":"adminPanel",
   "version": "0.0.6",

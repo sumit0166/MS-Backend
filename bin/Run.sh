@@ -5,7 +5,7 @@ script_name="backendServer.js"
 app_path=".."
 
 SartProcess (){
-    if ! command -v "$process_name" &> /dev/null; then
+    if ! command -v "$process_name" > /dev/null 2>&1; then
         echo "Node.js is not installed. Please install Node.js before running the process."
         exit 1
     fi
@@ -22,17 +22,26 @@ SartProcess (){
 
     # Check if the required npm packages are installed
 
-    
-    
-
+    echo " -- Checking and Installing Dependencies --"
     required_packages=$(jq -r '.dependencies | keys | join(" ")' "$app_path/package.json")
+
     for package in $required_packages; do
         echo "Checking package... $package"
-        if ! "$process_name" -e "require('$package')" &> /dev/null; then
-            echo "Package $package is not installed. Please install the required packages before running the process."
-            exit 1
+        
+        if ! npm list --depth=0 "$package" &> /dev/null; then
+            echo "Package $package is not installed. Trying to install.."
+            npm install "$package"
         fi
     done
+    
+    # required_packages=$(jq -r '.dependencies | keys | join(" ")' "$app_path/package.json")
+    # for package in $required_packages; do
+    #     echo "Checking package... $package"
+    #     if ! "$process_name" -e "require('$package')" &> /dev/null; then
+    #         echo "Package $package is not installed. Please install the required packages before running the process."
+    #         exit 1
+    #     fi
+    # done
 
     cd "$app_path" || exit 1
     "$process_name" "$script_name" 
