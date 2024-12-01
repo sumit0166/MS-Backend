@@ -1,9 +1,9 @@
 {
   "serverPort": 8082,
-  "dbHost": "webapp",
+  "dbHost": "mongodb",
   "port":"27017",
   "dbName":"adminPanel",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "sesionTimeout": "2h",
   "corsPolicy": {
     "incomingTraffic": "allowedOnly",

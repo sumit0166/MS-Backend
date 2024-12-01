@@ -1,0 +1,11 @@
+[0.0.7] - 2024-12-01
+Added
+    - new Health API - which returns health percentage. syntax - /health (Pending base work)
+    - new getVersion API in /health/getVersion.
+
+Changed
+    - Moved apt commands above COPY in Dockerfile.
+    - Printing db ip with port before connection.
+
+Fixed
+    - 

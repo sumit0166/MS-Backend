@@ -10,8 +10,8 @@ const upload = multer({ dest: 'tmp/' });
 const router = express.Router()
 
 router.post("/uploadProduct", upload.array('image'), async (req, res) => {
-        uploadProduct(req, res);
-    });
+    uploadProduct(req, res);
+});
 
 router.get('/getProducts', verifyToken(secretKey), (req, res) => {
     manageProductRequest(req, res);
