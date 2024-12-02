@@ -9,3 +9,18 @@ Changed
 
 Fixed
     - 
+
+[0.0.7] - 2024-12-02
+Added
+    - msDetails Schema
+    - host param in appConfig.json
+    - markUp and markDown function
+    - code to handle kill signal and trigger markDown at KILL SIGNAL
+    - added api to kill remotely /health/killServer
+
+Changed
+    - 
+    - 
+
+Fixed
+    - 

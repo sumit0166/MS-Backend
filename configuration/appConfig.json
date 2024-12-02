@@ -1,4 +1,5 @@
 {
+  "host": "webapp",
   "serverPort": 8082,
   "dbHost": "mongodb",
   "port":"27017",

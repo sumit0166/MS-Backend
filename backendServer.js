@@ -15,6 +15,8 @@ const healthRouter  = require('./components/routers/health');
 
 const secretKey = "nodeJaApp@8082forwebsite";
 const { logRequest, corsOptions } = require('./components/middleware/trafficAuth');
+const { registerStatusUp } = require('./components/controllers/registerMs');
+const { handleKillSignal } = require('./components/controllers/handleKillSignal');
 
 
 const app = express();
@@ -37,6 +39,8 @@ app.use("/iam", loginRouter);
 
 app.use("/health", healthRouter);
 
+handleKillSignal()
+
 // app.post('/upload', upload.array('image'), async (req, res) => {
 //   uploadProduct(req,res);
 // });
@@ -57,10 +61,11 @@ app.listen(config.serverPort, () => {
   mongoose.connect('mongodb://' + config.dbHost + ':' + config.port + '/' + config.dbName)
   .then(() => {
     logger.info('Connected to MongoDB');
+    registerStatusUp()
   })
   .catch((error) => {
     logger.error(`Database connection error: ${error.message}`);
-    exit(1)
+    process.kill(process.pid, "SIGINT")
   });
 })
 
