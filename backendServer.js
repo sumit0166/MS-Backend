@@ -21,6 +21,14 @@ const { handleKillSignal } = require('./components/controllers/handleKillSignal'
 
 const app = express();
 
+// const originalLog = console.log;
+
+// console.log = function (...args) {
+//   const err = new Error();
+//   const stack = err.stack.split('\n').slice(2).join('\n'); // Get the stack trace
+//   originalLog.apply(console, args);
+//   originalLog("Stack trace:\n", stack);
+// };
 
 // app.use(cors());
 //app.use(express.urlencoded({ extended: true }));

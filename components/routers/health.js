@@ -2,14 +2,12 @@ const express = require("express");
 const config = require("../../configuration/appConfig.json");
 const { registerStatusDown } = require("../controllers/registerMs");
 const logger = require("../logger");
+const { checkHealth } = require("../controllers/healthCheck");
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.json({
-    opStatus: 200,
-    message: "100%"
-  })
+    checkHealth(req, res);
 })
 
 router.get('/getVersion', (req, res) => {

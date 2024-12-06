@@ -1,4 +1,4 @@
-[0.0.7] - 2024-12-01
+[0.0.7-1] - 2024-12-01
 Added
     - new Health API - which returns health percentage. syntax - /health (Pending base work)
     - new getVersion API in /health/getVersion.
@@ -10,17 +10,23 @@ Changed
 Fixed
     - 
 
-[0.0.7] - 2024-12-02
+[0.0.7-2] - 2024-12-02
 Added
     - msDetails Schema
     - host param in appConfig.json
     - markUp and markDown function
     - code to handle kill signal and trigger markDown at KILL SIGNAL
-    - added api to kill remotely /health/killServer
+    - added api to kill remotely >> /health/killServer
 
-Changed
-    - 
-    - 
-
-Fixed
-    - 
+[0.0.7-3] - 2024-12-06
+    Added
+        - code to healthcheck which returns the helth percentage based on successfull api hits.
+        - code accespt test token for api's testing.
+        - added api to deleteUser based on username.
+        - axios module.
+    
+    Changed
+        - userModel schema, added docVersioning and timestamp field.
+    
+    Fixed
+        - userModel schema, made username field unique( Earlier it was making multiple entries with ssame username).

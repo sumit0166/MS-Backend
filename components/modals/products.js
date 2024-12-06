@@ -10,7 +10,7 @@ const prodcutSchema = new mongoose.Schema({
     description: String,
     image: String,
     prdoductType: String
-})
+}, { timestamps: true, versionKey: 'docVersion', minimize: false })
 
 
 const productModel = mongoose.model("products",prodcutSchema);

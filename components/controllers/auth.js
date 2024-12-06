@@ -154,8 +154,22 @@ const getLoginHash = async (req, res) => {
 }
 
 
+async function delUser(req, res) {
+  try {
+    // const username = req.body.username;
+    const delResp = await userModel.deleteOne({username: req.body.username})
+    console.log(">>> delResp",delResp)
+    res.status(200).json(delResp);
+  } catch (error) {
+    console.error('(deluser) - '+error)
+    res.status(500).json({error});
+  }
+}
+
+
 
 module.exports = {
   getLogin,
+  delUser,
   secretKey
 };
