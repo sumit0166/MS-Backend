@@ -42,9 +42,8 @@ async function fetchMsDetails(req, res) {
                     }
                 }
             ],
-            allData: [
-                { $replaceRoot: { newRoot: "$$ROOT" } }
-            ]
+            allData: { $replaceRoot: { newRoot: "$$ROOT" } }
+            
         }
     }
     ]
@@ -57,13 +56,13 @@ async function fetchMsDetails(req, res) {
                 console.log(details)
 
                 res.status(200).json({
-                    opStatus: "success",
+                    opStatus: 200,
                     details
                 })
             } else {
 
                 res.status(401).json({
-                    opStatus: "Failed",
+                    opStatus: 401,
                     message: "empty data"
                 })
             }
