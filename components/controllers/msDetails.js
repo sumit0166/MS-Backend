@@ -42,7 +42,7 @@ async function fetchMsDetails(req, res) {
                     }
                 }
             ],
-            allData: { $replaceRoot: { newRoot: "$$ROOT" } }
+            allData: [{ $replaceRoot: { newRoot: "$$ROOT" } }]
             
         }
     }
