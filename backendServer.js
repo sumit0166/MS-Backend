@@ -12,6 +12,7 @@ const config = require('./configuration/appConfig.json');
 const productRouter  = require('./components/routers/products');
 const loginRouter  = require('./components/routers/iam');
 const healthRouter  = require('./components/routers/health');
+const handleMsDetails = require('./components/routers/handleMsDetails');
 
 const secretKey = "nodeJaApp@8082forwebsite";
 const { logRequest, corsOptions } = require('./components/middleware/trafficAuth');
@@ -44,8 +45,8 @@ app.use('/images', express.static('/imgs'));
 
 app.use("/products", productRouter);
 app.use("/iam", loginRouter);
-
 app.use("/health", healthRouter);
+app.use("/msDetail", handleMsDetails);
 
 handleKillSignal()
 

@@ -2,7 +2,6 @@ const logger = require("../logger");
 const { registerStatusDown } = require("./registerMs");
 
 function handleKillSignal(){
-
     
     process.on('SIGINT', async () => {
         logger.error('(handleKillSignal): Received SIGINT. Shutting down gracefully...');
@@ -46,11 +45,14 @@ process.on('uncaughtException', async (error) => {
 
 
 process.on('unhandledRejection', async (reason, promise) => {
-    console.error('Unhandled rejection at:', promise, 'reason:', reason);
+    logger.error('Unhandled rejection at: '+ promise + 'reason: ' + reason);
+    console.error('Unhandled rejection at: ', promise ,'reason: ' , reason);
     console.log('Performing cleanup before shutdown...');
 
-    // Perform cleanup tasks here
-    await cleanupTasks();
+    await  registerStatusDown().then(
+        updatedDoc => {
+            logger.info('(handleKillSignal): Updated MSDetails '+ JSON.stringify(updatedDoc))
+          })
     
     console.log('Cleanup complete. Exiting due to unhandled rejection...');
     process.exit(1);  // Exit with error code
@@ -58,5 +60,5 @@ process.on('unhandledRejection', async (reason, promise) => {
 
 
 module.exports = {
-    handleKillSignal,
+    handleKillSignal
 }

@@ -1,7 +1,7 @@
 {
   "host": "webapp",
   "serverPort": 8082,
-  "dbHost": "webapp",
+  "dbHost": "mongodb",
   "port":"27017",
   "dbName":"adminPanel",
   "version": "0.0.7",

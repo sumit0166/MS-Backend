@@ -33,7 +33,6 @@ async function registerStatusDown() {
     }
 }
 
-
 function registerStatusUp() {
     const status = 'up';
     const statusCode = 1;
