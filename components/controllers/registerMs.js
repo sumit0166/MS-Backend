@@ -6,6 +6,7 @@ const { msDetailsModel } = require('../modals/msDetails')
 const host = config.host;
 const port = config.serverPort;
 const uid = `http://${host}_${port}`;
+const url = `http://${host}:${port}`;
 
 
 async function registerStatusDown() {
@@ -60,6 +61,7 @@ function registerStatusUp() {
                         status: status,
                         statusCode: statusCode,
                         lastUpTime: new Date,
+                        lastDownTime: null
                     }
 
                     logger.info('(registerStatusUp): document not exist');

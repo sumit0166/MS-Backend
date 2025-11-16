@@ -66,8 +66,9 @@ handleKillSignal()
 
 app.listen(config.serverPort, () => {
   logger.info(`server is running on port > ${config.serverPort}`);
-  logger.info('mongodb://' + config.dbHost + ':' + config.port + '/' + config.dbName);
-  mongoose.connect('mongodb://' + config.dbHost + ':' + config.port + '/' + config.dbName)
+  DB_URL = 'mongodb://'+ config.dbUser + ':' + config.dbPassword +'@'+ config.dbHost + ':' + config.port + '/' + config.dbName + '?authSource=admin'
+  logger.info(DB_URL);
+  mongoose.connect(DB_URL)
   .then(() => {
     logger.info('Connected to MongoDB');
     registerStatusUp()
