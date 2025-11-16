@@ -2,7 +2,7 @@ const logger = require("../logger");
 const { userModel } = require('../modals/users')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+const defaultUserConfig = require('../../configuration/defaultUser.json');
 const secretKey = "nodeJaApp@8082forwebsite";
 
 
@@ -154,6 +154,42 @@ const getLoginHash = async (req, res) => {
 }
 
 
+const createDefaultUser = async () => {
+  logger.info(`----- Checking existing defaultUser -----`)
+  // console.log('----- Checking existing defaultUser -----')
+  try {
+    userModel.findOne({ username: 'admin' })
+      .then(async user => {
+        if (user !== null) {
+          logger.info(`>> defaultUser already exists in db `);
+          return;
+        }
+        logger.info(`----- Creating default User -----`)
+        logger.info(`----- User details: ${JSON.stringify(defaultUserConfig)} -----`)
+        const newUser = new userModel(defaultUserConfig);
+        const savedUser = await newUser.save();
+        logger.info(`>> defaultUser created successfully: ${JSON.stringify(savedUser)}`);
+        return;
+      })
+      .catch(err => {
+        let resp = {
+          opStatus: 502,
+          message: `Databse Error ${err}`
+        }
+        logger.error(`Databse Error ${err} \n response sent -> ${JSON.stringify(resp)}`);
+        res.json(resp);
+      })
+
+  } catch (error) {
+    logger.error(error.message, error)
+    res.json({
+      opStatus: 500,
+      message: error.message
+    })
+  }
+}
+
+
 async function delUser(req, res) {
   try {
     // const username = req.body.username;
@@ -168,8 +204,11 @@ async function delUser(req, res) {
 
 
 
+
+
 module.exports = {
   getLogin,
   delUser,
-  secretKey
+  secretKey,
+  createDefaultUser
 };

@@ -18,7 +18,7 @@ const secretKey = "nodeJaApp@8082forwebsite";
 const { logRequest, corsOptions } = require('./components/middleware/trafficAuth');
 const { registerStatusUp } = require('./components/controllers/registerMs');
 const { handleKillSignal } = require('./components/controllers/handleKillSignal');
-
+const { createDefaultUser } = require('./components/controllers/auth');
 
 const app = express();
 
@@ -65,13 +65,22 @@ handleKillSignal()
 
 
 app.listen(config.serverPort, () => {
+  dbUser = process.env.DB_USER || config.dbUser;
+  dbPassword = process.env.DB_PASSWD || config.dbPassword;
+  dbHost = process.env.DB_HOST || config.dbHost;
+
   logger.info(`server is running on port > ${config.serverPort}`);
-  DB_URL = 'mongodb://'+ config.dbUser + ':' + config.dbPassword +'@'+ config.dbHost + ':' + config.port + '/' + config.dbName + '?authSource=admin'
+  DB_URL = 'mongodb://'+ dbUser + ':' + dbPassword +'@'+ dbHost + ':' + config.port + '/' + config.dbName + '?authSource=admin'
   logger.info(DB_URL);
   mongoose.connect(DB_URL)
   .then(() => {
     logger.info('Connected to MongoDB');
-    registerStatusUp()
+    try{
+      createDefaultUser();
+    } catch(err){
+      logger.error(`Error in creating default user: ${err}`)
+    }
+    registerStatusUp();
   })
   .catch((error) => {
     logger.error(`Database connection error: ${error.message}`);
