@@ -1,11 +1,11 @@
 {
   "host": "webapp",
   "serverPort": 8082,
-  "dbHost": "",
+  "dbHost": "localhost",
   "port":"27017",
   "dbName":"adminPanel",
-  "dbUser": "",
-  "dbPassword": "",
+  "dbUser": "admin",
+  "dbPassword": "admin",
   "version": "0.0.7",
   "sesionTimeout": "2h",
   "corsPolicy": {

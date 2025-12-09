@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "backend ti fetch data from mongodb",
-  "main": "database.js",
+  "main": "backendServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
