@@ -104,17 +104,11 @@ Be sure to update the backend image name or push the built image to a container 
 - Logging config in `appConfig.json` uses `logs/%DATE%.log` with rotation settings. Logs will be written into the `logs/` folder if the process has write access.
 
 **Notes & Recommendations**
-- The repo contains `prodcuts.json` (note spelling) under `components/`. Consider renaming if needed.
 - Validate and rotate the credentials in `k8s/mongo-secret.yaml` if you deploy to production (do not commit real secrets).
 - The `Dockerfile` runs `installDep.sh` during image build which calls `npm install` — for reproducibility you may want to `npm ci` and copy a `package-lock.json`.
 - `Run.sh` uses `jq` to parse `package.json` and expects `node` to be available in the environment; the Docker image provides it but local hosts must have Node installed.
 
 **Maintainer**
-- Author: `sumit sakpal` (from `package.json`).
-
-If you want, I can also:
-- Add a short `Makefile` or `scripts` in `package.json` to standardize build/run steps.
-- Update the Dockerfile to use `npm ci` and copy `package-lock.json` for deterministic builds.
-- Add k8s YAML to a single `k8s/all.yaml` for easier apply.
+- Author: `sumit sakpal`.
 
 ---
