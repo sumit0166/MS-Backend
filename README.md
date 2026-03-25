@@ -30,6 +30,19 @@ Ignored items (per your request): `tmp/`, `old.js`, `test.js`.
 - Runs `chmod 777 ./installDep.sh` and executes `./installDep.sh` during build.
 - Exposes port `8082` and runs `CMD ["bash", "Run.sh"]` (the `Run.sh` script starts the app).
 
+**Prerequisite**
+
+Pull and run monodb image:
+
+```bash 
+  docker run -d --name mongodb \
+  -p 27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=admin \
+  -v mongodb-data:/data1/mongo/db \ #volume can be optional but it's good practice to use it.
+  mongo:latest
+```
+
 Build and run (example):
 
 ```bash
