@@ -50,7 +50,7 @@ Build and run (example):
 docker build -t sumitsakpal/admin-backend:1.0.0 .
 
 # Run container (override envs as needed)
-docker run -e DB_HOST=mongo-service -e DB_USER=admin -e DB_PASSWD=admin -p 8082:8082 --name backend svc sumitsakpal/admin-backend:1.0.0
+docker run -e DB_HOST=mongo-service -e DB_USER=admin -e DB_PASSWD=admin -p 8082:8082 --name backend sumitsakpal/admin-backend:1.0.0
 ```
 
 Note: The container's `Run.sh` expects Node available and runs `backendServer.js` from the app folder (it `cd ..` from `bin`).
